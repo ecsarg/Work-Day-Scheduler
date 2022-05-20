@@ -1,8 +1,11 @@
 var saveBtn = $(".saveBtn");
 
-var todayDate = document.querySelector("#currentDay");
+
+
+
 var currentDate = moment();
-todayDate.textContent = currentDate.format("dddd MMMM Do YYYY");
+$("#currentDay").text(currentDate.format("dddd, MMMM Do, YYYY"));
+console.log(currentDate);
 
 
 function timeblockColor() {
@@ -13,20 +16,26 @@ function timeblockColor() {
 
         if (hour > currentHour) {
             $(this).addClass("future");
+            $(this).removeClass("present");
+            $(this).removeClass("past");
         } if (hour === currentHour) {
             $(this).addClass("present");
+            $(this).removeClass("future");
+            $(this).removeClass("past");
         } if (hour < currentHour) {
             $(this).addClass("past");
+            $(this).removeClass("present");
+            $(this).removeClass("future");
         }
     })
 };
 
-saveBtn.on("click", function() {
+function saveSchedule () {
     var time = $(this).siblings(".hour").text();
     var event = $(this).siblings(".event").val();
 
     localStorage.setItem("time", "event");
-});
+};
 
 function schedule() {
     $(".hour").each(function() {
@@ -37,7 +46,9 @@ function schedule() {
             $(this).siblings(".event").val(event);
         }
     });
-}
+};
 
+
+saveBtn.on("click", saveSchedule);
 timeblockColor();
 schedule();
