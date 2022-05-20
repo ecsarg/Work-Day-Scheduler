@@ -21,7 +21,7 @@ WHEN I refresh the page
 THEN the saved events persist
 
 ## Live Link
-
+https://ecsarg.github.io/Work-Day-Scheduler/
 
 ## Screenshot
 ![Screen Shot 2022-05-20 at 6 53 25 PM](https://user-images.githubusercontent.com/100548768/169625625-4c78a7bb-716f-49d7-a5e2-a3fcf218eb8f.png)
